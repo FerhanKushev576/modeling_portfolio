@@ -222,10 +222,10 @@ nav a:hover::after {
 }
 
 .grid-video {
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  overflow: hidden;
-  position: relative;
+  grid-column: 2;
+  grid-row: span 2;
+  transform: scale(1.15);
+  z-index: 2;
 }
 
 .grid-video video {
@@ -411,9 +411,9 @@ Based in Munich, focused on travel, lifestyle, and fashion photography with a gr
     <img src="images/IMG_1961_ergebnis.jpg">
 
     <div class="grid-video">
-      <video autoplay muted loop playsinline>
-        <source src="WAYQ7760.mp4" type="video/mp4">
-      </video>
+		<video controls loop playsinline>
+		  <source src="WAYQ7760.mp4" type="video/mp4">
+		</video>
     </div>
 
     <img src="images/IMG_4224.jpg">
