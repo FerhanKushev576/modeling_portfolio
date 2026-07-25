@@ -194,10 +194,9 @@ nav a:hover::after {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
-
-  width: 100%;
+  align-items: center;
 }
 
 .grid img {
@@ -224,9 +223,9 @@ nav a:hover::after {
 
 .grid-video {
   width: 100%;
-  height: 420px;
-  position: relative;
+  aspect-ratio: 9 / 16;
   overflow: hidden;
+  position: relative;
 }
 
 .grid-video video {
@@ -283,6 +282,14 @@ footer {
   .grid img {
     height:250px;
   }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-video {
+    aspect-ratio: 9 / 16;
+  }
+}
 }
 /*.contact-info {
   margin-top: 25px;
@@ -395,26 +402,28 @@ Based in Munich, focused on travel, lifestyle, and fashion photography with a gr
 
 <section id="portfolio" class="section">
   <div class="section-title">Portfolio</div>
-<div class="grid">
 
-  <img src="images/IMG_4367.jpg">
-  <img src="images/IMG_8156_ergebnis.jpg">
+  <div class="grid">
 
-  <div class="grid-video">
-    <video autoplay muted loop playsinline>
-      <source src="WAYQ7760.mp4" type="video/mp4">
-    </video>
+    <img src="images/IMG_4367.jpg">
+    <img src="images/IMG_8156_ergebnis.jpg">
+
+    <img src="images/IMG_4256.jpg">
+
+    <div class="grid-video">
+      <video autoplay muted loop playsinline>
+        <source src="WAYQ7760.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <img src="images/IMG_1961_ergebnis.jpg">
+    <img src="images/IMG_4224.jpg">
+    <img src="images/IMG_7929_ergebnis.jpg">
+    <img src="images/IMG_4228.jpg">
+    <img src="images/IMG_4399.jpg">
+    <img src="images/IMG_4534.jpg">
+
   </div>
-
-  <img src="images/IMG_4256.jpg">
-  <img src="images/IMG_1961_ergebnis.jpg">
-  <img src="images/IMG_4224.jpg">
-  <img src="images/IMG_7929_ergebnis.jpg">
-  <img src="images/IMG_4228.jpg">
-  <img src="images/IMG_4399.jpg">
-  <img src="images/IMG_4534.jpg">
-
-</div>
 </section>
 
 <section id="contact" class="section">
