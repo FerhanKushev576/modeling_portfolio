@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ferhan Kushev — Model Portfolio</title>
+<meta name="description" content="Ferhan Kushev — model based in Munich. Travel, lifestyle and fashion photography." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#131209;
+    --ink-soft:#1d1c15;
+    --paper:#f5f2ec;
+    --stone:#a49c8c;
+    --stone-dim:#4a483f;
+    --brass:#a8894f;
+    --brass-soft:#8c7645;
+    --rule: rgba(245,242,236,0.14);
+    --rule-dark: rgba(19,18,9,0.12);
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Work Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{ color:inherit; }
+  ::selection{ background:var(--brass); color:var(--ink); }
+
+  :focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 5vw;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    background:linear-gradient(to bottom, rgba(19,18,9,0.55), transparent);
+    transition:background 0.4s ease;
+  }
+  nav.scrolled{
+    background:rgba(19,18,9,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  nav .mark{ color:var(--paper); letter-spacing:0.1em; }
+  nav .mark b{ color:var(--brass); font-weight:500; }
+  nav .links{ display:flex; gap:34px; }
+  nav .links a{
+    text-decoration:none;
+    color:var(--stone);
+    position:relative;
+    padding-bottom:4px;
+  }
+  nav .links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0%; height:1px;
+    background:var(--brass);
+    transition:width 0.3s ease;
+  }
+  nav .links a:hover{ color:var(--paper); }
+  nav .links a:hover::after{ width:100%; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    height:100svh;
+    min-height:560px;
+    display:flex;
+    align-items:flex-end;
+  }
+  .hero-media{ position:absolute; inset:0; overflow:hidden; }
+  .hero-media img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center top;
+    filter:brightness(0.72) saturate(0.95);
+    transform:scale(1.06);
+    animation:heroDrift 16s ease-in-out infinite alternate;
+  }
+  @keyframes heroDrift{
+    from{ transform:scale(1.06); }
+    to{ transform:scale(1.14); }
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(to bottom, rgba(19,18,9,0.15) 0%, rgba(19,18,9,0.05) 45%, rgba(19,18,9,0.92) 100%);
+  }
+
+  /* film-strip rail along the right edge, literal to the photography subject */
+  .rail{
+    position:absolute;
+    top:0; right:0; bottom:0;
+    width:64px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+    padding:28px 0;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.14em;
+    color:rgba(245,242,236,0.55);
+    border-left:1px solid var(--rule);
+    background:rgba(19,18,9,0.25);
+  }
+  .rail span{ writing-mode:vertical-rl; white-space:nowrap; }
+  .rail .tick{
+    width:1px; height:14px; background:rgba(245,242,236,0.3);
+  }
+
+  .hero-content{
+    position:relative;
+    z-index:2;
+    padding:0 5vw 64px;
+    max-width:920px;
+  }
+  .hero-content .eyebrow{ display:block; margin-bottom:18px; }
+  .hero-content h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(48px, 9vw, 118px);
+    line-height:0.94;
+    letter-spacing:0.01em;
+    margin:0 0 18px;
+    color:var(--paper);
+  }
+  .hero-content h1 em{
+    font-style:italic;
+    font-weight:300;
+    color:var(--brass);
+  }
+  .hero-content .sub{
+    font-family:var(--sans);
+    font-weight:300;
+    font-size:15px;
+    letter-spacing:0.04em;
+    color:var(--stone);
+    max-width:480px;
+    line-height:1.7;
+  }
+
+  .scroll-cue{
+    position:absolute;
+    left:5vw; bottom:26px;
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.18em;
+    color:var(--stone);
+    z-index:2;
+  }
+  .scroll-cue .line{
+    width:34px; height:1px; background:var(--stone);
+    position:relative; overflow:hidden;
+  }
+  .scroll-cue .line::after{
+    content:"";
+    position:absolute; left:-100%; top:0; bottom:0; width:100%;
+    background:var(--brass);
+    animation:cue 2.4s ease-in-out infinite;
+  }
+  @keyframes cue{
+    0%{ left:-100%; } 50%{ left:0; } 100%{ left:100%; }
+  }
+
+  /* ---------- SHARED SECTION FRAME ---------- */
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 5vw; }
+  section{ position:relative; padding:130px 0; }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:18px;
+    margin-bottom:64px;
+  }
+  .section-head .num{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--brass);
+  }
+  .section-head h2{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(30px, 4vw, 46px);
+    margin:0;
+    letter-spacing:0.01em;
+  }
+  .section-head .rule{
+    flex:1;
+    height:1px;
+    background:var(--rule);
+    transform:translateY(-6px);
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- ABOUT ---------- */
+  #about{ background:var(--ink); }
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:80px;
+    align-items:start;
+  }
+  .about-copy p{
+    font-family:var(--serif);
+    font-weight:300;
+    font-size:clamp(19px, 2vw, 24px);
+    line-height:1.65;
+    color:var(--paper);
+    margin:0;
+  }
+  .about-copy p::first-letter{
+    font-size:3.4em;
+    float:left;
+    line-height:0.8;
+    padding-right:10px;
+    padding-top:4px;
+    color:var(--brass);
+    font-style:italic;
+  }
+  .about-copy .loc{
+    margin-top:28px;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    color:var(--stone);
+    text-transform:uppercase;
+  }
+
+  .specs{
+    font-family:var(--mono);
+    border-top:1px solid var(--rule);
+  }
+  .specs .row{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid var(--rule);
+    font-size:13px;
+    letter-spacing:0.04em;
+  }
+  .specs .row span:first-child{ color:var(--stone); text-transform:uppercase; letter-spacing:0.12em; font-size:11px; }
+  .specs .row span:last-child{ color:var(--paper); }
+  .specs .row:hover{ background:rgba(168,137,79,0.06); }
+  .specs .cap{
+    margin-top:16px;
+    font-size:10px;
+    color:var(--stone-dim);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+
+  /* ---------- PORTFOLIO / TRIPTYCH: PICS + CENTER VIDEO ---------- */
+  #portfolio{ background:var(--ink-soft); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+
+  .split-stage{
+    width:100vw;
+    position:relative;
+    left:50%;
+    margin-left:-50vw;
+    display:grid;
+    grid-template-columns:1fr 1.6fr 1fr;
+    gap:32px;
+    align-items:start;
+    padding:0 3vw;
+  }
+
+  .corner{ position:absolute; width:16px; height:16px; z-index:3; opacity:0.85; }
+  .corner::before, .corner::after{ content:""; position:absolute; background:rgba(245,242,236,0.7); }
+  .corner.tl{ top:14px; left:14px; } .corner.tr{ top:14px; right:14px; }
+  .corner.bl{ bottom:14px; left:14px; } .corner.br{ bottom:14px; right:14px; }
+  .corner::before{ width:1px; height:12px; } .corner::after{ height:1px; width:12px; }
+  .corner.tr::before, .corner.tr::after, .corner.br::before, .corner.br::after{ left:auto; right:0; }
+  .corner.bl::before, .corner.bl::after, .corner.br::before, .corner.br::after{ top:auto; bottom:0; }
+
+  /* -- flanking photo columns -- */
+  .side-col{ display:flex; flex-direction:column; gap:32px; }
+  .side-col .frame{
+    position:relative;
+    cursor:zoom-in;
+    background:var(--ink-soft);
+    border:1px solid var(--rule);
+    padding:14px;
+    transition:border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  .side-col .frame:hover{
+    border-color:var(--brass);
+    box-shadow:0 0 0 1px rgba(168,137,79,0.35);
+  }
+  .side-col .frame img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:62vh;
+    object-fit:contain;
+    margin:0 auto;
+    filter:grayscale(0.12) contrast(1.02);
+    transition:filter 0.5s ease, transform 0.5s ease;
+  }
+  .side-col .frame:hover img{ filter:grayscale(0) contrast(1.04); transform:translateY(-3px); }
+  .side-col .frame .idx{
+    position:absolute; top:-9px; left:14px; z-index:3;
+    padding:0 6px;
+    background:var(--ink-soft);
+    font-family:var(--mono); font-size:10px; letter-spacing:0.14em;
+    color:var(--brass);
+  }
+
+  /* -- center video, large and sticky -- */
+  .video-col{ position:sticky; top:110px; }
+  .video-frame{
+    position:relative;
+    background:var(--ink-soft);
+    border:1px solid var(--rule);
+    padding:16px;
+    transition:border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  .video-frame:hover{
+    border-color:var(--brass);
+    box-shadow:0 0 0 1px rgba(168,137,79,0.35);
+  }
+  .video-frame video{
+    width:100%;
+    height:auto;
+    max-height:76vh;
+    display:block;
+    object-fit:contain;
+  }
+  .video-frame .cap{
+    position:absolute; bottom:-9px; right:26px; z-index:3;
+    padding:0 6px;
+    background:var(--ink-soft);
+    font-family:var(--mono); font-size:10px; letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+
+  @media (max-width:960px){
+    .split-stage{ grid-template-columns:1fr; gap:40px; padding:0 5vw; }
+    .video-col{ position:static; order:-1; }
+    .video-frame video{ max-height:60vh; }
+    .side-col .frame img{ max-height:none; }
+  }
+
+  /* ---------- CONTACT ---------- */
+  #contact{
+    background:var(--ink);
+    text-align:left;
+  }
+  .contact-inner{
+    display:flex;
+    flex-wrap:wrap;
+    gap:40px;
+    justify-content:space-between;
+    align-items:flex-end;
+  }
+  .contact-inner h2{
+    font-family:var(--serif);
+    font-weight:300;
+    font-style:italic;
+    font-size:clamp(32px, 5.4vw, 64px);
+    max-width:640px;
+    line-height:1.15;
+    margin:0;
+  }
+  .contact-links{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    font-family:var(--mono);
+    font-size:14px;
+  }
+  .contact-links a{
+    text-decoration:none;
+    color:var(--paper);
+    border-bottom:1px solid var(--rule);
+    padding-bottom:3px;
+    width:max-content;
+    transition:color 0.3s ease, border-color 0.3s ease;
+  }
+  .contact-links a:hover{ color:var(--brass); border-color:var(--brass); }
+  .contact-links .label{
+    font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);
+  }
+
+  footer{
+    padding:34px 5vw 46px;
+    display:flex;
+    justify-content:space-between;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--stone-dim);
+    border-top:1px solid var(--rule);
+  }
+
+  /* ---------- LIGHTBOX ---------- */
+  #lightbox{
+    display:none;
+    position:fixed; inset:0;
+    background:rgba(6,6,4,0.96);
+    z-index:9999;
+    align-items:center; justify-content:center;
+    padding:5vw;
+  }
+  #lightbox.show{ display:flex; }
+  #lightbox img{
+    max-width:100%; max-height:90vh;
+    object-fit:contain;
+  }
+  #lightbox .close{
+    position:absolute; top:26px; right:5vw;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.1em;
+    color:var(--paper); cursor:pointer;
+    border:1px solid var(--rule); padding:8px 14px;
+  }
+  #lightbox .close:hover{ border-color:var(--brass); color:var(--brass); }
+
+  @media (max-width:860px){
+    .about-grid{ grid-template-columns:1fr; gap:48px; }
+    .rail{ display:none; }
+  }
+  @media (max-width:640px){
+    nav .links{ gap:20px; }
+    section{ padding:90px 0; }
+    .about-stats{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <span class="mark">FERHAN <b>KUSHEV</b></span>
+  <div class="links">
+    <a href="#about">Profile</a>
+    <a href="#portfolio">Selects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-media">
+    <img src="images/IMG_3815.jpg" alt="Ferhan Kushev portrait">
+  </div>
+  <div class="rail" aria-hidden="true">
+    <span>MUNICH — DE</span>
+    <div class="tick"></div>
+    <span>EST. PORTFOLIO 2026</span>
+  </div>
+  <div class="scroll-cue"><div class="line"></div><span>scroll</span></div>
+  <div class="hero-content">
+    <span class="eyebrow">Model — Munich</span>
+    <h1>Ferhan<br><em>Kushev</em></h1>
+    <p class="sub">Travel, lifestyle and fashion photography — expressive, natural imagery built for editorial and lifestyle-driven work.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="num">N°01</span>
+      <h2>Profile</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>Based in Munich, focused on travel, lifestyle, and fashion photography with a growing portfolio of on-camera work. Developing experience through expressive, natural imagery that combines clean aesthetics with storytelling across editorial and lifestyle-driven projects.</p>
+        <div class="loc">Munich, Germany — Available for bookings</div>
+      </div>
+      <div class="specs reveal">
+        <div class="row"><span>Height</span><span>194 cm / 6'4"</span></div>
+        <div class="row"><span>Weight</span><span>80 kg / 176 lbs</span></div>
+        <div class="row"><span>Chest</span><span>97 cm / 38.2"</span></div>
+        <div class="row"><span>Waist</span><span>79 cm / 31.1"</span></div>
+        <div class="row"><span>Hips</span><span>98 cm / 38.6"</span></div>
+        <div class="row"><span>Shoes</span><span>45 EU / 11 US</span></div>
+        <div class="cap">Measurement card — updated 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="num">N°02</span>
+      <h2>Selects</h2>
+      <div class="rule"></div>
+    </div>
+  </div>
+
+  <div class="split-stage reveal">
+
+    <div class="side-col">
+      <div class="frame"><span class="idx">01</span><img src="IMG_5156.JPG" alt="Portfolio image 01" loading="lazy"></div>
+      <div class="frame"><span class="idx">02</span><img src="images/IMG_8156_ergebnis.jpg" alt="Portfolio image 02" loading="lazy"></div>
+      <div class="frame"><span class="idx">03</span><img src="IMG_E4905.JPG" alt="Portfolio image 03" loading="lazy"></div>
+    </div>
+
+    <div class="video-col">
+      <div class="video-frame">
+        <video autoplay loop muted playsinline controls>
+          <source src="WAYQ7760.mp4" type="video/mp4">
+        </video>
+        <span class="cap">Motion</span>
+      </div>
+    </div>
+
+    <div class="side-col">
+      <div class="frame"><span class="idx">04</span><img src="images/IMG_1961_ergebnis.jpg" alt="Portfolio image 04" loading="lazy"></div>
+      <div class="frame"><span class="idx">05</span><img src="IMG_E5028.JPG" alt="Portfolio image 05" loading="lazy"></div>
+      <div class="frame"><span class="idx">06</span><img src="images/IMG_7929_ergebnis.jpg" alt="Portfolio image 06" loading="lazy"></div>
+      <div class="frame"><span class="idx">07</span><img src="IMG_E8271.JPG" alt="Portfolio image 07" loading="lazy"></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="num">N°03</span>
+      <h2>Contact</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="contact-inner reveal">
+      <h2>Let's create<br>something.</h2>
+      <div class="contact-links">
+        <div>
+          <div class="label">Email</div>
+          <a href="mailto:ferhan98@gmx.net">ferhan98@gmx.net</a>
+        </div>
+        <div>
+          <div class="label">Instagram</div>
+          <a href="https://instagram.com/ferhan.kv" target="_blank" rel="noopener">@ferhan.kv</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Ferhan Kushev</span>
+  <span>Munich, Germany</span>
+</footer>
+
+<div id="lightbox">
+  <div class="close" id="lightboxClose">Close ✕</div>
+  <img id="lightbox-img" alt="">
+</div>
+
+<script>
+  // Nav background on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive:true });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const openLightbox = (src, alt) => {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('show');
+  };
+  const closeLightbox = () => { lightbox.classList.remove('show'); lightboxImg.src = ''; };
+  lightbox.addEventListener('click', closeLightbox);
+  document.getElementById('lightboxClose').addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  document.querySelectorAll('.side-col .frame img').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.getAttribute('src'), img.alt));
+  });
+</script>
+
+</body>
+</html>
